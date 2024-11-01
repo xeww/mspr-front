@@ -30,3 +30,9 @@ body {
 .font-special {
     font-family: Rubik Glitch, serif;
 }
+
+.wrapper {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 8%;
+}

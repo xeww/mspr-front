@@ -1,0 +1,29 @@
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+
+.contact-form-container input, textarea {
+    background-color: var(--lesser-dark);
+    color: white;
+    padding: 8px;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.contact-form-first-row-container {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-form-container button {
+    width: 40%;
+}
+
+.contact-form-container textarea {
+    height: 150px;
+}

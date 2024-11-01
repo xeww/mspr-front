@@ -1,0 +1,24 @@
+.faq-question-container {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--lesser-dark);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.faq-question-expand-button {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    transition: rotate 0.3s;
+}
+
+.faq-question-container svg {
+    width: 45px;
+}
+
+.faq-question-container p:nth-child(1) {
+    margin-bottom: 20px;
+}
