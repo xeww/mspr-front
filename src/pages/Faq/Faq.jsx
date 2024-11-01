@@ -10,7 +10,7 @@ export default function Faq() {
   return (
     <>
       <Header />
-      <UpperPage title="FAQ & Contacte" description="Des questions?" />
+      <UpperPage title="FAQ & Contact" description="Des questions?" />
 
       <div className="wrapper">
         <div className="faq-questions-container">
