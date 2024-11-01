@@ -1,0 +1,35 @@
+.home-question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+
+.home-question-container p:nth-child(1){
+    font-size: 1.9rem;
+}
+
+.home-question-container p:nth-child(3){
+    font-size: 1.07rem;
+    text-align: center;
+}
+
+.home-question-text-line {
+    background-color: white;
+    width: 40px;
+    height: 1px;
+}
+
+.home-question-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 30%;
+}
+
+.home-question-container img {
+    object-fit: cover;
+    max-width: 500px;
+    max-height: 300px;
+}

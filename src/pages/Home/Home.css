@@ -1,0 +1,29 @@
+.home-background-image {
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.showcase-container h2 {
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    bottom: 8%;
+    margin-left: 20px;
+}
+
+.sub-showcase-container {
+    background-color: rgba(14, 10, 23, 0.52);
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.learn-more-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}

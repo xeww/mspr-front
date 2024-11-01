@@ -1,0 +1,7 @@
+# Ignore artifacts:
+**/.git
+**/.prettierrc
+**/node_modules
+README.md
+package.json
+package-lock.json
