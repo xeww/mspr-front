@@ -1,9 +1,12 @@
+/* Stylesheets imports */
 import "./App.css";
+
+/* Components imports */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import Faq from "./pages/Faq/Faq.jsx";
 
-function App() {
+export default function App() {
   return (
     <>
       <BrowserRouter>
@@ -15,5 +18,3 @@ function App() {
     </>
   );
 }
-
-export default App;

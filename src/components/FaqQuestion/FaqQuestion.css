@@ -1,24 +1,25 @@
 .faq-question-container {
-    position: relative;
     margin-bottom: 30px;
     padding: 20px;
     background-color: var(--lesser-dark);
     border: 2px solid white;
     border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .faq-question-expand-button {
-    cursor: pointer;
-    position: absolute;
     top: 20px;
     right: 5px;
-    transition: rotate 0.3s;
+    transition: transform 0.5s;
 }
 
 .faq-question-container svg {
-    width: 45px;
+    width: 30px;
 }
 
-.faq-question-container p:nth-child(1) {
-    margin-bottom: 20px;
+.faq-question-container p:nth-child(2) {
+    margin-top: 20px;
 }

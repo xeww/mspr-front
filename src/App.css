@@ -1,7 +1,7 @@
-/* Importing fonts from Google Fonts */
+/* Google Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Days+One&family=Itim&family=Rubik+Glitch&display=swap');
 
-/* Defining global variables */
+/* Global variables */
 :root {
     --dark: #0E0A17;
     --lesser-dark: #26232C;
@@ -10,7 +10,7 @@
     --brown: #453236;
 }
 
-/* Doing a soft reset */
+/* Soft reset */
 * {
     margin: 0;
     padding: 0;
@@ -32,8 +32,6 @@ body {
     font-family: Rubik Glitch, serif;
 }
 
-.wrapper {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 8%;
+.glow {
+    box-shadow: white 0 0 10px;
 }

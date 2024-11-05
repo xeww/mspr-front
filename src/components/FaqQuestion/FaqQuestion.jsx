@@ -1,8 +1,12 @@
+/* Stylesheets imports */
 import "./FaqQuestion.css";
-import { useEffect, useRef, useState } from "react";
+
+/* Components imports */
 import ArrowIcon from "../Icons/ArrowIcon.jsx";
 
-// eslint-disable-next-line react/prop-types
+/* Hooks imports */
+import { useEffect, useRef, useState } from "react";
+
 export default function FaqQuestion({ question, answer }) {
   const [isToggled, setToggled] = useState(false);
   const answerRef = useRef(null);
@@ -20,22 +24,16 @@ export default function FaqQuestion({ question, answer }) {
   }, [isToggled]);
 
   return (
-    <>
-      <div className="faq-question-container">
-        <div>
-          <p className="font-title">{question}</p>
-          <p className="font-body" ref={answerRef}>
-            {answer}
-          </p>
-        </div>
-        <div
-          className="faq-question-expand-button"
-          onClick={handleClick}
-          ref={buttonRef}
-        >
-          <ArrowIcon />
-        </div>
+    <div className="faq-question-container glow" onClick={handleClick}>
+      <div>
+        <p className="font-title">{question}</p>
+        <p className="font-body" ref={answerRef}>
+          {answer}
+        </p>
       </div>
-    </>
+      <div className="faq-question-expand-button" ref={buttonRef}>
+        <ArrowIcon />
+      </div>
+    </div>
   );
 }

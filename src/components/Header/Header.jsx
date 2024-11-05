@@ -1,5 +1,10 @@
+/* Stylesheets imports */
 import "./Header.css";
+
+/* Components imports */
 import MenuIcon from "../Icons/MenuIcon.jsx";
+
+/* Hooks imports */
 import { useEffect, useRef } from "react";
 
 export default function Header() {
@@ -26,11 +31,9 @@ export default function Header() {
   }, []);
 
   return (
-    <>
-      <header ref={headerRef}>
-        <h1 className="font-title">NATION SOUNDS</h1>
-        <MenuIcon />
-      </header>
-    </>
+    <header ref={headerRef}>
+      <h1 className="font-title">NATION SOUNDS</h1>
+      <MenuIcon />
+    </header>
   );
 }
