@@ -1,0 +1,53 @@
+.concert-card-container {
+    width: 50%;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.concert-card-container:hover {
+    transform: scale(1.01);
+}
+
+.concert-card-top-container {
+    height: 75%;
+}
+
+.concert-card-top-container img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.concert-card-bottom-container {
+    height: 25%;
+    background-color: var(--lesser-dark);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.concert-card-bottom-single-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.concert-card-bottom-single-info svg {
+    width: 30px;
+    height: 30px;
+    padding-right: 6px;
+    color: var(--red);
+}
+
+.concert-card-bottom-single-info p{
+    color: var(--red);
+    font-size: 1rem;
+}
+
+.concert-card-bottom-artist-name p{
+    font-size: 1.7rem;
+}
