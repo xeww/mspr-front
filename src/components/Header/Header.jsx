@@ -6,6 +6,7 @@ import MenuIcon from "../Icons/MenuIcon.jsx";
 
 /* Hooks imports */
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const headerRef = useRef(null);
@@ -32,7 +33,9 @@ export default function Header() {
 
   return (
     <header ref={headerRef}>
-      <h1 className="font-title">NATION SOUNDS</h1>
+      <Link to="/">
+        <h1 className="font-title">NATION SOUNDS</h1>
+      </Link>
       <MenuIcon />
     </header>
   );

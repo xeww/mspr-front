@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import Faq from "./pages/Faq/Faq.jsx";
 import Program from "./pages/Program/Program.jsx";
+import Map from "./pages/Map/Map.jsx";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/programme" element={<Program />} />
+          <Route path="/carte" element={<Map />} />
         </Routes>
       </BrowserRouter>
     </>
