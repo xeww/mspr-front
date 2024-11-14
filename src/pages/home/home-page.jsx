@@ -54,6 +54,7 @@ export function Questions() {
           Célébrant la diversité musicale, il mêle sons électro, rythmes traditionnels et découvertes culturelles dans
            une ambiance festive et conviviale. Un rendez-vous incontournable pour les passionnés de musique."
         imageSource={questionOneImage}
+        reversed={false}
       />
 
       <Question
@@ -62,6 +63,7 @@ export function Questions() {
            vivre un week-end intense de découvertes musicales, d'énergie et de festivités sous le soleil, avec des
            performances du matin jusqu'à tard dans la nuit."
         imageSource={questionTwoImage}
+        reversed={true}
       />
 
       <Question
@@ -70,6 +72,7 @@ export function Questions() {
           le site offre une expérience immersive au cœur de la nature, avec plusieurs scènes réparties pour profiter de
           chaque moment musical dans un décor unique."
         imageSource={questionThreeImage}
+        reversed={false}
       />
 
       <div className="learn-more-button-container">

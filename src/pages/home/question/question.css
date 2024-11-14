@@ -1,9 +1,9 @@
 .home-question-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 200px;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .home-question-container p:nth-child(1){
