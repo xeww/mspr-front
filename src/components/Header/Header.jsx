@@ -4,9 +4,9 @@ import "./Header.css";
 /* Components imports */
 import MenuIcon from "../Icons/MenuIcon.jsx";
 
-/* Hooks imports */
+/* Lib imports */
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 export default function Header() {
   const headerRef = useRef(null);

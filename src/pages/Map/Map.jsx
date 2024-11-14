@@ -6,13 +6,13 @@ import "leaflet/dist/leaflet.css";
 import UpperPage from "../../components/UpperPage/UpperPage.jsx";
 import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
-import { Circle, MapContainer, TileLayer } from "react-leaflet";
 import StoreIcon from "../../components/Icons/StoreIcon.jsx";
 import SceneIcon from "../../components/Icons/SceneIcon.jsx";
 import WCIcon from "../../components/Icons/WCIcon.jsx";
 
-/* Hooks imports */
+/* Lib imports */
 import { useEffect, useRef, useState } from "react";
+import { Circle, MapContainer, TileLayer } from "react-leaflet";
 
 export default function Map() {
   return (
