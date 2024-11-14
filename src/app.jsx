@@ -6,6 +6,7 @@ import HomePage from "./pages/home/home-page.jsx";
 import MapPage from "./pages/map/map-page.jsx";
 import FaqPage from "./pages/faq/faq-page.jsx";
 import ProgramPage from "./pages/program/program-page.jsx";
+import PartnerPage from "./pages/partner/partner-page.jsx";
 
 /* Lib imports */
 import { Route, Switch } from "wouter";
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/carte" component={MapPage} />
         <Route path="/faq" component={FaqPage} />
         <Route path="/programme" component={ProgramPage} />
+        <Route path="/partenaires" component={PartnerPage} />
         <Route>
           <h1>Not Found #TODO</h1>
         </Route>

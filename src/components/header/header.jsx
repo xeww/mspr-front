@@ -85,6 +85,9 @@ function MenuExtension() {
         <Link to="/carte" className="font-title">
           Carte
         </Link>
+        <Link to="/partenaires" className="font-title">
+          Partenaires
+        </Link>
         <Link to="/faq" className="font-title">
           FAQ
         </Link>

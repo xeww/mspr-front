@@ -1,0 +1,28 @@
+.partners-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.single-partner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--lesser-dark);
+    width: 400px;
+    height: 400px;
+    border: 2px solid white;
+    transition: all 0.2s;
+    margin-bottom: 5%;
+}
+
+.single-partner-container:hover{
+    opacity: 0.9;
+}
+
+.single-partner-container img {
+    height: 75%;
+    width: 75%;
+    object-fit: contain;
+}
