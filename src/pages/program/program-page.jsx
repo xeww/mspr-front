@@ -11,7 +11,9 @@ import ConcertCard from "./concert-card/concert-card.jsx";
 
 /* Temporary/Testing imports */
 import angele from "../../assets/angele.jpg";
-import drake from "../../assets/drake.png";
+
+/* Lib imports */
+import useConcert from "../../hooks/useConcert.js";
 
 export default function ProgramPage() {
   return (
@@ -41,36 +43,22 @@ function Filters() {
   );
 }
 
-function ArtistFilter() {
-  //TODO
-}
-
-function SceneFilter() {
-  //TODO
-}
-
-function DateFilter() {
-  //TODO
-}
-
 function Concerts() {
+  const concerts = useConcert();
+
   return (
     <section className="concerts-container">
-      <ConcertCard
-        image={angele}
-        artistName="Angèle"
-        date="18 Juin"
-        time="18h30"
-        sceneName="Scène Phénix"
-      />
-
-      <ConcertCard
-        image={drake}
-        artistName="Drake"
-        date="20 Juin"
-        time="20h30"
-        sceneName="Scène Nova"
-      />
+      {concerts &&
+        concerts.map((concert) => (
+          <ConcertCard
+            key={concert.id}
+            image={angele}
+            artistName={concert.artist.name}
+            date="18 Juin"
+            time="18h30"
+            sceneName={concert.scene.name}
+          />
+        ))}
     </section>
   );
 }

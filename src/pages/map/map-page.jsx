@@ -12,7 +12,8 @@ import WcIcon from "../../components/icons/wc-icon.jsx";
 
 /* Lib imports */
 import { useEffect, useRef, useState } from "react";
-import { Circle, MapContainer, TileLayer } from "react-leaflet";
+import { Circle, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import useScene from "../../hooks/useScene.js";
 
 export default function MapPage() {
   return (
@@ -31,10 +32,18 @@ export default function MapPage() {
 
 function LeafletMap() {
   const center = [48.82839101465429, 2.433085355121854];
+  const scenes = useScene();
+
   return (
-    <MapContainer center={center} zoom={15} scrollWheelZoom={false}>
+    <MapContainer center={center} zoom={16} scrollWheelZoom={false}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Circle center={center} pathOptions={{ color: "blue" }} radius={900} />
+      <Circle center={center} pathOptions={{ color: "blue" }} radius={500} />
+      {scenes &&
+        scenes.map((scene) => (
+          <Marker key={scene.id} position={[scene.latitude, scene.longitude]}>
+            <Popup>Scène {scene.name}</Popup>
+          </Marker>
+        ))}
     </MapContainer>
   );
 }
