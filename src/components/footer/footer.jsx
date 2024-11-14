@@ -6,6 +6,7 @@ import TwitterIcon from "../icons/twitter-icon.jsx";
 import InstagramIcon from "../icons/instagram-icon.jsx";
 import FacebookIcon from "../icons/facebook-icon.jsx";
 import YoutubeIcon from "../icons/youtube-icon.jsx";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -20,10 +21,18 @@ export default function Footer() {
 function Links() {
   return (
     <div className="footer-links">
-      <a className="font-body">Confidentialité</a>
-      <a className="font-body">Mentions légales</a>
-      <a className="font-body">CGU</a>
-      <a className="font-body">Sitemap</a>
+      <Link to="/" className="font-body">
+        Confidentialité
+      </Link>
+      <Link to="/" className="font-body">
+        Mentions légales
+      </Link>
+      <Link to="/" className="font-body">
+        CGU
+      </Link>
+      <Link to="/" className="font-body">
+        Sitemap
+      </Link>
     </div>
   );
 }
@@ -31,10 +40,18 @@ function Links() {
 function Socials() {
   return (
     <div className="footer-social-icons">
-      <TwitterIcon />
-      <InstagramIcon />
-      <FacebookIcon />
-      <YoutubeIcon />
+      <a href="https://x.com" target="_blank">
+        <TwitterIcon />
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <InstagramIcon />
+      </a>
+      <a href="https://facebook.com" target="_blank">
+        <FacebookIcon />
+      </a>
+      <a href="https://youtube.com" target="_blank">
+        <YoutubeIcon />
+      </a>
     </div>
   );
 }

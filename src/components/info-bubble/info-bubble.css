@@ -30,5 +30,5 @@
     background-color: rgba(221, 145, 78, 0.4);
     border-radius: 50px;
     z-index: -1;
-    filter: blur(60px)
+    filter: blur(60px);
 }

@@ -2,6 +2,10 @@ footer a, p {
     color: white;
 }
 
+footer svg:hover {
+    opacity: 0.9;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -12,9 +16,47 @@ footer {
     position: relative;
 }
 
+footer::after {
+    content: "";
+    width: 170px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: rgba(221, 145, 78, 0.4);
+    position: absolute;
+    top: 4%;
+    left: -2%;
+    filter: blur(19px);
+
+}
+
+footer::before {
+    content: "";
+    width: 170px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: rgba(221, 145, 78, 0.4);
+    position: absolute;
+    bottom: -2%;
+    right: -2%;
+    filter: blur(19px);
+}
+
 .footer-links {
     display: flex;
     gap: 20px;
+}
+
+.footer-links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    display: block;
+    background: white;
+    transition: 200ms;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
 }
 
 .footer-social-icons {
