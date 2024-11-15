@@ -14,31 +14,26 @@ footer {
     gap: 10px;
     padding: 15px;
     position: relative;
+    overflow: hidden;
 }
 
-footer::after {
-    content: "";
-    width: 170px;
-    height: 90px;
-    border-radius: 50%;
+.footer-blur {
+    width: 200px;
+    height: 120px;
     background-color: rgba(221, 145, 78, 0.4);
     position: absolute;
-    top: 4%;
-    left: -2%;
-    filter: blur(19px);
-
+    border-radius: 50%;
+    filter: blur(30px);
 }
 
-footer::before {
-    content: "";
-    width: 170px;
-    height: 90px;
-    border-radius: 50%;
-    background-color: rgba(221, 145, 78, 0.4);
-    position: absolute;
-    bottom: -2%;
-    right: -2%;
-    filter: blur(19px);
+.footer-blur-left {
+    top: -30px;
+    left: -30px;
+}
+
+.footer-blur-right {
+    bottom: -30px;
+    right: -30px;
 }
 
 .footer-links {

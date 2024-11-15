@@ -21,6 +21,8 @@ export default function Footer() {
 function Links() {
   return (
     <div className="footer-links">
+      <div className="footer-blur footer-blur-left"></div>
+      <div className="footer-blur footer-blur-right"></div>
       <Link to="/" className="font-body">
         Confidentialité
       </Link>
