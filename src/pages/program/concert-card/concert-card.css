@@ -1,12 +1,11 @@
 .concert-card-container {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s;
-    margin-bottom: 5%;
 }
 
 .concert-card-container:hover {

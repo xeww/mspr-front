@@ -12,9 +12,10 @@ export default function ConcertCard({
   date,
   time,
   sceneName,
+  onClick,
 }) {
   return (
-    <div className="concert-card-container glow">
+    <div className="concert-card-container glow" onClick={onClick}>
       <Top image={image} />
       <Bottom
         date={date}

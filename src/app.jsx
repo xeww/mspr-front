@@ -9,7 +9,8 @@ import ProgramPage from "./pages/program/program-page.jsx";
 import PartnerPage from "./pages/partner/partner-page.jsx";
 
 /* Lib imports */
-import { Route, Switch } from "wouter";
+import { Redirect, Route, Switch } from "wouter";
+import ConcertInfoPage from "./pages/concert-info/concert-info-page.jsx";
 
 export default function App() {
   return (
@@ -20,8 +21,9 @@ export default function App() {
         <Route path="/faq" component={FaqPage} />
         <Route path="/programme" component={ProgramPage} />
         <Route path="/partenaires" component={PartnerPage} />
+        <Route path="/concert/:id" component={ConcertInfoPage} />
         <Route>
-          <h1>Not Found #TODO</h1>
+          <Redirect to="/" />
         </Route>
       </Switch>
     </>

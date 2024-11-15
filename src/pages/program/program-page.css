@@ -1,5 +1,5 @@
 .concerts-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 5%;
+    grid-template-columns: 1fr 1fr 1fr; /* TODO: the lesser the width, the less fractions we need*/
 }
