@@ -9,9 +9,6 @@ import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import InfoBubble from "../../components/info-bubble/info-bubble.jsx";
 import ConcertCard from "./concert-card/concert-card.jsx";
 
-/* Temporary/Testing imports */
-import angele from "../../assets/angele.jpg";
-
 /* Lib imports */
 import useConcert from "../../hooks/useConcert.js";
 
@@ -52,7 +49,7 @@ function Concerts() {
         concerts.map((concert) => (
           <ConcertCard
             key={concert.id}
-            image={angele}
+            image={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
             artistName={concert.artist.name}
             date="18 Juin"
             time="18h30"
