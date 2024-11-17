@@ -61,7 +61,7 @@ function Menu() {
       extension.style.backdropFilter = isToggled ? "blur(100px)" : "none";
       extension.style.transform = isToggled
         ? "translateX(0%)"
-        : "translateX(200%)";
+        : "translateX(100%)";
     }
   }, [isToggled]);
 
