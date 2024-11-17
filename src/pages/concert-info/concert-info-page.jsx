@@ -6,12 +6,21 @@ import UpperPage from "../../components/upper-page/upper-page.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import useConcert from "../../hooks/useConcert.js";
 import { useEffect, useState } from "react";
+import MapPinIcon from "../../components/icons/map-pin-icon.jsx";
+import Button from "../../components/buttons/button.jsx";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");
   const [display, setDisplay] = useState(null);
+
+  if (!match && isNaN(params.id)) {
+    return <Redirect to="/" />;
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const concert = useConcert(params.id);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (concert && Object.keys(concert).length > 0) {
       setDisplay(
@@ -20,21 +29,46 @@ export default function ConcertInfoPage() {
             title={concert.artist.name}
             description={concert.dateAndTime}
           />
-          <MarginWrapper></MarginWrapper>
+          <MarginWrapper>
+            <ConcertInfo
+              scene={concert.scene}
+              imageUrl={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
+              artist={concert.artist}
+            />
+          </MarginWrapper>
         </>,
       );
     }
   }, [concert]);
-
-  if (!match && isNaN(params.id)) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>
       <Header />
       {display}
       <Footer />
+    </>
+  );
+}
+
+function ConcertInfo({ scene, imageUrl, artist }) {
+  const handleClick = () => {
+    return <Redirect to="/carte" />;
+  };
+
+  return (
+    <>
+      <section className="concert-info-container">
+        <div className="concert-info-scene-container">
+          <MapPinIcon />
+          <p className="font-title">Scène {scene?.name ?? "Erreur"}</p>
+        </div>
+        <img src={imageUrl} alt={`Image de ${artist?.name ?? "Erreur"}`} />
+        <p className="font-body concert-info-description">
+          {artist?.description ?? "Erreur"}
+        </p>
+
+        <Button text="Voir sur la carte" onClick={handleClick} />
+      </section>
     </>
   );
 }

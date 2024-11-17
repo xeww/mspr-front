@@ -1,0 +1,38 @@
+.concert-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.concert-info-scene-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+
+.concert-info-scene-container svg {
+    width: 50px;
+}
+
+.concert-info-scene-container p {
+    font-size: 1.4rem;
+}
+
+.concert-info-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.concert-info-description {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.concert-info-container button {
+    width: 20%;
+    margin: 50px auto auto;
+}
