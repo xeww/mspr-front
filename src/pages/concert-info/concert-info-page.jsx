@@ -8,6 +8,7 @@ import useConcert from "../../hooks/useConcert.js";
 import { useEffect, useState } from "react";
 import MapPinIcon from "../../components/icons/map-pin-icon.jsx";
 import Button from "../../components/buttons/button.jsx";
+import { getFullDateAndHour } from "../../utils/date.js";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");
@@ -27,7 +28,7 @@ export default function ConcertInfoPage() {
         <>
           <UpperPage
             title={concert.artist.name}
-            description={concert.dateAndTime}
+            description={getFullDateAndHour(concert.dateAndTime)}
           />
           <MarginWrapper>
             <ConcertInfo

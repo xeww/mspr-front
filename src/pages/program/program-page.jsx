@@ -13,6 +13,7 @@ import ConcertCard from "./concert-card/concert-card.jsx";
 import useConcert from "../../hooks/useConcert.js";
 import { useRef } from "react";
 import { useLocation } from "wouter";
+import { getFullDate, getHour } from "../../utils/date.js";
 
 export default function ProgramPage() {
   return (
@@ -59,8 +60,8 @@ function Concerts() {
             key={concert.id}
             image={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
             artistName={concert.artist.name}
-            date="18 Juin"
-            time="18h30"
+            date={getFullDate(concert.dateAndTime)}
+            time={getHour(concert.dateAndTime)}
             sceneName={concert.scene.name}
             onClick={() => handleClick(concert.id)}
           />
