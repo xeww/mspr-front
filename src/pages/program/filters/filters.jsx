@@ -2,14 +2,13 @@ import "./filters.css";
 import UserStarIcon from "../../../components/icons/user-star-icon.jsx";
 import ExpandIcon from "../../../components/icons/expand-icon.jsx";
 import { useContext, useEffect, useRef, useState } from "react";
-import useArtist from "../../../hooks/useArtist.js";
-import useScene from "../../../hooks/useScene.js";
 import SceneIcon from "../../../components/icons/scene-icon.jsx";
 import { FilterContext } from "../program-page.jsx";
+import useData from "../../../hooks/useData.js";
 
 export default function Filters() {
-  const artists = useArtist();
-  const scenes = useScene();
+  const artists = useData(-1, "artist");
+  const scenes = useData(-1, "scene");
 
   return (
     <section className="filters-container">

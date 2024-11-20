@@ -5,11 +5,11 @@ import UpperPage from "../../components/upper-page/upper-page.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import InfoBubble from "../../components/info-bubble/info-bubble.jsx";
 import ConcertCard from "./concert-card/concert-card.jsx";
-import useConcert from "../../hooks/useConcert.js";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { getFullDate, getHour } from "../../utils/date.js";
 import Filters from "./filters/filters.jsx";
+import useData from "../../hooks/useData.js";
 
 export const FilterContext = createContext(null);
 
@@ -50,7 +50,7 @@ export default function ProgramPage() {
 
 function Concerts() {
   const container = useRef({});
-  const concerts = useConcert();
+  const concerts = useData(-1, "concert");
   const [, setLocation] = useLocation();
   const { filterSelection } = useContext(FilterContext);
   const [filteredConcerts, setFilteredConcerts] = useState([]);

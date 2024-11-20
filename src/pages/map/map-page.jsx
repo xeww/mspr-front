@@ -1,19 +1,14 @@
-/* Stylesheets imports */
 import "./map-page.css";
 import "leaflet/dist/leaflet.css";
-
-/* Components imports */
 import UpperPage from "../../components/upper-page/upper-page.jsx";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import StoreIcon from "../../components/icons/store-icon.jsx";
 import SceneIcon from "../../components/icons/scene-icon.jsx";
 import WcIcon from "../../components/icons/wc-icon.jsx";
-
-/* Lib imports */
 import { useEffect, useRef, useState } from "react";
 import { Circle, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import useScene from "../../hooks/useScene.js";
+import useData from "../../hooks/useData.js";
 
 export default function MapPage() {
   return (
@@ -32,7 +27,7 @@ export default function MapPage() {
 
 function LeafletMap() {
   const center = [48.82839101465429, 2.433085355121854];
-  const scenes = useScene();
+  const scenes = useData(-1, "scene");
 
   return (
     <MapContainer center={center} zoom={16} scrollWheelZoom={false}>

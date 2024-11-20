@@ -4,11 +4,11 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
-import useConcert from "../../hooks/useConcert.js";
 import { useEffect, useState } from "react";
 import MapPinIcon from "../../components/icons/map-pin-icon.jsx";
 import Button from "../../components/buttons/button.jsx";
 import { getFullDateAndHour } from "../../utils/date.js";
+import useData from "../../hooks/useData.js";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");
@@ -19,7 +19,7 @@ export default function ConcertInfoPage() {
   }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const concert = useConcert(params.id);
+  const concert = useData(params.id, "concert");
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {

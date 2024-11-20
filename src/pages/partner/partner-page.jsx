@@ -2,8 +2,8 @@ import "./partner-page.css";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
-import usePartner from "../../hooks/usePartner.js";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
+import useData from "../../hooks/useData.js";
 
 export default function PartnerPage() {
   return (
@@ -22,7 +22,7 @@ export default function PartnerPage() {
 }
 
 function Partners() {
-  const partners = usePartner();
+  const partners = useData(-1, "partner");
   return (
     <section className="partners-container">
       {partners &&
