@@ -98,17 +98,23 @@ function Concerts() {
 
   return (
     <section className="concerts-container" ref={container}>
-      {filteredConcerts.map((concert) => (
-        <ConcertCard
-          key={concert.id}
-          image={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
-          artistName={concert.artist.name}
-          date={getFullDate(concert.dateAndTime)}
-          time={getHour(concert.dateAndTime)}
-          sceneName={concert.scene.name}
-          onClick={() => handleClick(concert.id)}
-        />
-      ))}
+      {filteredConcerts.length > 0 ? (
+        filteredConcerts.map((concert) => (
+          <ConcertCard
+            key={concert.id}
+            image={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
+            artistName={concert.artist.name}
+            date={getFullDate(concert.dateAndTime)}
+            time={getHour(concert.dateAndTime)}
+            sceneName={concert.scene.name}
+            onClick={() => handleClick(concert.id)}
+          />
+        ))
+      ) : (
+        <p className="font-title">
+          Aucun résultat... <span className="font-special">:(</span>
+        </p>
+      )}
     </section>
   );
 }
