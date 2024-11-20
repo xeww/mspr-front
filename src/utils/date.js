@@ -31,3 +31,7 @@ export function getHour(dateStr) {
 
   return new Intl.DateTimeFormat("fr-FR", options).format(date);
 }
+
+export function isDateBetween(d, start, end) {
+  return d.valueOf() >= start.valueOf() && d.valueOf() <= end.valueOf();
+}

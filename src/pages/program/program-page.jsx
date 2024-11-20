@@ -7,7 +7,7 @@ import InfoBubble from "../../components/info-bubble/info-bubble.jsx";
 import ConcertCard from "./concert-card/concert-card.jsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
-import { getFullDate, getHour } from "../../utils/date.js";
+import { getFullDate, getHour, isDateBetween } from "../../utils/date.js";
 import Filters from "./filters/filters.jsx";
 import useData from "../../hooks/useData.js";
 
@@ -60,19 +60,31 @@ function Concerts() {
   };
 
   const handleFilters = () => {
-    const sceneSelectionIds = filterSelection["scene"].map((scene) => scene.id);
-    const artistSelectionIds = filterSelection["artist"].map(
-      (artist) => artist.id,
-    );
-
     if (concerts) {
+      const sceneSelectionIds = filterSelection["scene"].map(
+        (scene) => scene.id,
+      );
       let filtered = concerts.filter((concert) =>
         sceneSelectionIds.includes(concert.scene.id),
       );
 
+      const artistSelectionIds = filterSelection["artist"].map(
+        (artist) => artist.id,
+      );
       filtered = filtered.filter((concert) =>
         artistSelectionIds.includes(concert.artist.id),
       );
+
+      const dateSelection = filterSelection["date"];
+      if (dateSelection) {
+        filtered = filtered.filter((concert) =>
+          isDateBetween(
+            new Date(concert.dateAndTime),
+            dateSelection[0],
+            dateSelection[1],
+          ),
+        );
+      }
 
       setFilteredConcerts(filtered);
     } else {

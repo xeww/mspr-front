@@ -5,6 +5,9 @@ import { useContext, useEffect, useRef, useState } from "react";
 import SceneIcon from "../../../components/icons/scene-icon.jsx";
 import { FilterContext } from "../program-page.jsx";
 import useData from "../../../hooks/useData.js";
+import Calendar from "react-calendar";
+import CalendarIcon from "../../../components/icons/calendar-icon.jsx";
+import FunctionIcon from "../../../components/icons/function-icon.jsx";
 
 export default function Filters() {
   const artists = useData(-1, "artist");
@@ -23,6 +26,12 @@ export default function Filters() {
         menu={<FilterListMenu choices={scenes} type="scene" />}
         leftIcon={<SceneIcon />}
         rightIcon={<ExpandIcon />}
+      />
+      <SingleFilter
+        defaultStr="Date"
+        menu={<FilterCalendarMenu type="date" />}
+        leftIcon={<CalendarIcon />}
+        rightIcon={<FunctionIcon />}
       />
     </section>
   );
@@ -94,5 +103,24 @@ function FilterListMenu({ choices, type }) {
           </p>
         ))}
     </div>
+  );
+}
+
+function FilterCalendarMenu({ type }) {
+  const { filterSelection, setFilterSelection } = useContext(FilterContext);
+  const [value, onChange] = useState(null);
+
+  useEffect(() => {
+    setFilterSelection({ ...filterSelection, [type]: value });
+  }, [value]);
+
+  return (
+    <Calendar
+      locale="fr-FR"
+      selectRange={true}
+      value={value}
+      onChange={onChange}
+      allowPartialRange={false}
+    />
   );
 }
