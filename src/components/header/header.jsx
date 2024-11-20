@@ -1,13 +1,20 @@
-/* Stylesheets imports */
 import "./header.css";
-
-/* Components imports */
 import MenuIcon from "../icons/menu-icon.jsx";
-
-/* Lib imports */
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import CloseIcon from "../icons/close-icon.jsx";
+
+export const MenuStateContext = createContext(null);
+
+function MenuStateProvider({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <MenuStateContext.Provider value={{ isOpen, setIsOpen }}>
+      {children}
+    </MenuStateContext.Provider>
+  );
+}
 
 export default function Header() {
   const headerRef = useRef(null);
@@ -33,62 +40,83 @@ export default function Header() {
   }, []);
 
   return (
-    <>
+    <MenuStateProvider>
       <header ref={headerRef}>
         <div className="header-flex-container">
-          <Link to="/">
-            <h1 className="font-title">NATION SOUNDS</h1>
-          </Link>
+          <Title />
           <Menu />
         </div>
       </header>
       <MenuExtension />
-    </>
+    </MenuStateProvider>
+  );
+}
+
+function Title() {
+  const { isOpen, setIsOpen } = useContext(MenuStateContext);
+
+  return (
+    <Link to="/">
+      <h1
+        className="font-title"
+        onClick={() => {
+          if (isOpen) setIsOpen(false);
+        }}
+      >
+        NATION SOUNDS
+      </h1>
+    </Link>
   );
 }
 
 function Menu() {
   const button = useRef(null);
-  const [isToggled, setToggled] = useState(false);
+  const { isOpen, setIsOpen } = useContext(MenuStateContext);
 
   const handleClick = () => {
-    setToggled(!isToggled);
+    setIsOpen(!isOpen);
   };
 
   useEffect(() => {
     const extension = document.querySelector(".menu-extension-container");
     if (extension) {
-      extension.style.backdropFilter = isToggled ? "blur(100px)" : "none";
-      extension.style.transform = isToggled
+      extension.style.backdropFilter = isOpen ? "blur(100px)" : "none";
+      extension.style.transform = isOpen
         ? "translateX(0%)"
         : "translateX(100%)";
     }
-  }, [isToggled]);
+  }, [isOpen]);
 
   return (
     <div className={"menu-icon-container"} ref={button} onClick={handleClick}>
-      {isToggled ? <CloseIcon /> : <MenuIcon />}
+      {isOpen ? <CloseIcon /> : <MenuIcon />}
     </div>
   );
 }
 
 function MenuExtension() {
+  const { setIsOpen } = useContext(MenuStateContext);
+
+  const handleClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="menu-extension-container">
       <div className="menu-extension-items">
-        <Link to="/" className="font-title">
+        <Link to="/" className="font-title" onClick={handleClick}>
           Accueil
         </Link>
-        <Link to="/programme" className="font-title">
+        <Link to="/programme" className="font-title" onClick={handleClick}>
           Programme
         </Link>
-        <Link to="/carte" className="font-title">
+        <Link to="/carte" className="font-title" onClick={handleClick}>
           Carte
         </Link>
-        <Link to="/partenaires" className="font-title">
+        <Link to="/partenaires" className="font-title" onClick={handleClick}>
           Partenaires
         </Link>
-        <Link to="/faq" className="font-title">
+        <Link to="/faq" className="font-title" onClick={handleClick}>
           FAQ
         </Link>
       </div>
