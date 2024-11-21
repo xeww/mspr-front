@@ -13,6 +13,7 @@ import Footer from "../../components/footer/footer.jsx";
 import DoubleArrowDownIcon from "../../components/icons/double-arrow-down-icon.jsx";
 import Question from "./question/question.jsx";
 import Button from "../../components/buttons/button.jsx";
+import { useLocation } from "wouter";
 
 export default function HomePage() {
   return (
@@ -46,6 +47,8 @@ export function Showcase() {
 }
 
 export function Questions() {
+  const [, setLocation] = useLocation();
+
   return (
     <section className="home-questions-container">
       <Question
@@ -76,7 +79,12 @@ export function Questions() {
       />
 
       <div className="learn-more-button-container">
-        <Button text="En savoir plus" onClick={() => {}} />
+        <Button
+          text="En savoir plus"
+          onClick={() => {
+            setLocation("/programme");
+          }}
+        />
       </div>
     </section>
   );

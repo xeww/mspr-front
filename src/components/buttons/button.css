@@ -7,14 +7,14 @@
     border: none;
     border-bottom: 4px solid var(--orange-dark);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 150ms;
 }
 
 .button-container:hover {
-    transform: rotate(2deg);
+    opacity: 0.8;
 }
 
 .button-container:active {
-    transform: scale(0.95) rotate(2deg);
-    border-bottom: none;
+    border-bottom: 4px solid transparent;
+    transform: translateY(4px);
 }

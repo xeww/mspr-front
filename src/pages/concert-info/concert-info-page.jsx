@@ -1,5 +1,5 @@
 import "./concert-info-page.css";
-import { Redirect, useRoute } from "wouter";
+import { Redirect, useLocation, useRoute } from "wouter";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
@@ -52,9 +52,7 @@ export default function ConcertInfoPage() {
 }
 
 function ConcertInfo({ scene, imageUrl, artist }) {
-  const handleClick = () => {
-    return <Redirect to="/carte" />;
-  };
+  const [, setLocation] = useLocation();
 
   return (
     <>
@@ -68,7 +66,12 @@ function ConcertInfo({ scene, imageUrl, artist }) {
           {artist?.description ?? "Erreur"}
         </p>
 
-        <Button text="Voir sur la carte" onClick={handleClick} />
+        <Button
+          text="Voir sur la carte"
+          onClick={() => {
+            setLocation("/carte");
+          }}
+        />
       </section>
     </>
   );
