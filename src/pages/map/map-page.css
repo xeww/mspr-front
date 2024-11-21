@@ -1,6 +1,7 @@
 .leaflet-container {
     width: 100%;
     height: 70vh;
+    border-radius: 10px;
 }
 
 .map-filters-container {
@@ -17,11 +18,23 @@
     width: 200px;
     border-radius: 10px;
     gap: 10px;
-    border: 2px solid var(--orange);
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
+    transition: all 200ms;
 }
 
-.single-map-filter-container svg {
+.single-map-filter-container:hover {
+    opacity: 0.8;
+}
+
+.single-map-filter-container img {
     width: 30px;
+}
+
+.single-map-filter-container__enabled {
+    border: 2px solid greenyellow;
+}
+
+.single-map-filter-container__disabled {
+    border: 2px solid var(--red);
 }

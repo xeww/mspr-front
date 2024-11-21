@@ -3,42 +3,92 @@ import "leaflet/dist/leaflet.css";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
-import StoreIcon from "../../components/icons/store-icon.jsx";
-import SceneIcon from "../../components/icons/scene-icon.jsx";
-import WcIcon from "../../components/icons/wc-icon.jsx";
-import { useEffect, useRef, useState } from "react";
-import { Circle, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
 import useData from "../../hooks/useData.js";
+import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
+import sceneIcon from "../../assets/icons8-scene-30.png";
+import shopIcon from "../../assets/icons8-shop-30.png";
+import wcIcon from "../../assets/icons8-portable-toilet-30.png";
+import { SceneMarker, StandMarker, WCMarker } from "./markers.jsx";
+
+const MapFilterContext = createContext(null);
+
+function MapFilterProvider({ children }) {
+  const [standFilter, setStandFilter] = useState(true);
+  const [sceneFilter, setSceneFilter] = useState(true);
+  const [wcFilter, setWcFilter] = useState(true);
+
+  return (
+    <MapFilterContext.Provider
+      value={{
+        standFilter,
+        setStandFilter,
+        sceneFilter,
+        setSceneFilter,
+        wcFilter,
+        setWcFilter,
+      }}
+    >
+      {children}
+    </MapFilterContext.Provider>
+  );
+}
 
 export default function MapPage() {
   return (
-    <>
+    <MapFilterProvider>
       <Header />
       <UpperPage
         title="Carte Interactive"
         description="Localisez les lieux du festival ici!"
       />
-      <Filters />
-      <LeafletMap />
+      <MarginWrapper>
+        <Filters />
+        <LeafletMap />
+      </MarginWrapper>
       <Footer />
-    </>
+    </MapFilterProvider>
   );
 }
 
 function LeafletMap() {
+  const { standFilter, sceneFilter, wcFilter } = useContext(MapFilterContext);
+
   const center = [48.82839101465429, 2.433085355121854];
+
   const scenes = useData(-1, "scene");
+  const stands = useData(-1, "stand");
+  const wcs = useData(-1, "wc");
+
+  const sceneMarkers = () => {
+    if (sceneFilter && scenes) {
+      return scenes.map((scene) => (
+        <SceneMarker key={scene.id} scene={scene} />
+      ));
+    }
+  };
+
+  const standMarkers = () => {
+    if (standFilter && stands) {
+      return stands.map((stand) => (
+        <StandMarker key={stand.id} stand={stand} />
+      ));
+    }
+  };
+
+  const wcMarkers = () => {
+    if (wcFilter && wcs) {
+      return wcs.map((wc) => <WCMarker key={wc.id} wc={wc} />);
+    }
+  };
 
   return (
-    <MapContainer center={center} zoom={16} scrollWheelZoom={false}>
+    <MapContainer center={center} zoom={17} scrollWheelZoom={false}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Circle center={center} pathOptions={{ color: "blue" }} radius={500} />
-      {scenes &&
-        scenes.map((scene) => (
-          <Marker key={scene.id} position={[scene.latitude, scene.longitude]}>
-            <Popup>Scène {scene.name}</Popup>
-          </Marker>
-        ))}
+      {sceneMarkers()}
+      {standMarkers()}
+      {wcMarkers()}
     </MapContainer>
   );
 }
@@ -46,36 +96,51 @@ function LeafletMap() {
 function Filters() {
   return (
     <section className="map-filters-container">
-      <SingleFilter icon={<StoreIcon />} text="Stands" />
-      <SingleFilter icon={<SceneIcon />} text="Scènes" />
-      <SingleFilter icon={<WcIcon />} text="WC" />
+      <SingleFilter imageSrc={shopIcon} text="Stands" type="stand" />
+      <SingleFilter imageSrc={sceneIcon} text="Scènes" type="scene" />
+      <SingleFilter imageSrc={wcIcon} text="WC" type="wc" />
     </section>
   );
 }
 
-function SingleFilter({ icon, text }) {
-  const [isToggled, setToggled] = useState(true);
-  const container = useRef(null);
+function SingleFilter({ imageSrc, text, type }) {
+  const { setStandFilter, setSceneFilter, setWcFilter } =
+    useContext(MapFilterContext);
 
-  useEffect(() => {
-    if (isToggled) {
-      container.current.style.border = "2px solid var(--orange)";
-    } else {
-      container.current.style.border = "2px solid transparent";
-    }
-  }, [isToggled]);
+  const [isToggled, setToggled] = useState(true);
+
+  const container = useRef(null);
 
   const handleClick = () => {
     setToggled(!isToggled);
   };
 
+  useEffect(() => {
+    switch (type) {
+      case "stand":
+        setStandFilter(isToggled);
+        break;
+      case "scene":
+        setSceneFilter(isToggled);
+        break;
+      case "wc":
+        setWcFilter(isToggled);
+        break;
+    }
+  }, [isToggled]);
+
   return (
     <div
-      className="single-map-filter-container"
+      className={
+        "single-map-filter-container " +
+        (isToggled
+          ? "single-map-filter-container__enabled"
+          : "single-map-filter-container__disabled")
+      }
       onClick={handleClick}
       ref={container}
     >
-      {icon}
+      <img src={imageSrc} alt="Icône" />
       <p className="font-title">{text}</p>
     </div>
   );
