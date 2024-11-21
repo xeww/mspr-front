@@ -4,15 +4,17 @@ import UpperPage from "../../components/upper-page/upper-page.jsx";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import useData from "../../hooks/useData.js";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import sceneIcon from "../../assets/icons8-scene-30.png";
 import shopIcon from "../../assets/icons8-shop-30.png";
 import wcIcon from "../../assets/icons8-portable-toilet-30.png";
 import { SceneMarker, StandMarker, WCMarker } from "./markers.jsx";
+import Button from "../../components/buttons/button.jsx";
 
 const MapFilterContext = createContext(null);
+const GeoLocationContext = createContext(null);
 
 function MapFilterProvider({ children }) {
   const [standFilter, setStandFilter] = useState(true);
@@ -35,27 +37,38 @@ function MapFilterProvider({ children }) {
   );
 }
 
+function GeoLocationProvider({ children }) {
+  const [location, setLocation] = useState(null);
+  return (
+    <GeoLocationContext.Provider value={{ location, setLocation }}>
+      {children}
+    </GeoLocationContext.Provider>
+  );
+}
+
 export default function MapPage() {
   return (
-    <MapFilterProvider>
-      <Header />
-      <UpperPage
-        title="Carte Interactive"
-        description="Localisez les lieux du festival ici!"
-      />
-      <MarginWrapper>
-        <Filters />
-        <LeafletMap />
-      </MarginWrapper>
-      <Footer />
-    </MapFilterProvider>
+    <GeoLocationProvider>
+      <MapFilterProvider>
+        <Header />
+        <UpperPage
+          title="Carte Interactive"
+          description="Localisez les lieux du festival ici!"
+        />
+        <MarginWrapper>
+          <Filters />
+          <LeafletMap />
+          <GeoLocationButton />
+        </MarginWrapper>
+        <Footer />
+      </MapFilterProvider>
+    </GeoLocationProvider>
   );
 }
 
 function LeafletMap() {
   const { standFilter, sceneFilter, wcFilter } = useContext(MapFilterContext);
-
-  const center = [48.82839101465429, 2.433085355121854];
+  const { location } = useContext(GeoLocationContext);
 
   const scenes = useData(-1, "scene");
   const stands = useData(-1, "stand");
@@ -84,12 +97,64 @@ function LeafletMap() {
   };
 
   return (
-    <MapContainer center={center} zoom={17} scrollWheelZoom={false}>
+    <MapContainer
+      center={[48.82839101465429, 2.433085355121854]}
+      zoom={17}
+      scrollWheelZoom={false}
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {sceneMarkers()}
       {standMarkers()}
       {wcMarkers()}
+      {location ? (
+        <Marker position={[location.latitude, location.longitude]}>
+          <Popup>Votre position actuelle</Popup>
+        </Marker>
+      ) : null}
+      <RecenterAutomatically />
     </MapContainer>
+  );
+}
+
+/*
+  From: https://stackoverflow.com/a/73317874
+ */
+function RecenterAutomatically() {
+  const { location } = useContext(GeoLocationContext);
+
+  const map = useMap();
+
+  useEffect(() => {
+    if (location) {
+      map.panTo([location.latitude, location.longitude]);
+    }
+  }, [location]);
+
+  return null;
+}
+
+function GeoLocationButton() {
+  const { setLocation } = useContext(GeoLocationContext);
+
+  const handleClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.log(error);
+        },
+      );
+    }
+  };
+  return (
+    <div className="geolocate-button">
+      <Button text="Se géo-localiser" onClick={handleClick} />
+    </div>
   );
 }
 

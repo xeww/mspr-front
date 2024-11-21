@@ -1,4 +1,3 @@
-/* Stylesheets imports */
 import "./button.css";
 
 export default function Button({ text, onClick }) {

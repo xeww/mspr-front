@@ -38,3 +38,9 @@
 .single-map-filter-container__disabled {
     border: 2px solid var(--red);
 }
+
+.geolocate-button {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
