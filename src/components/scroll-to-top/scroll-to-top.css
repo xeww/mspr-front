@@ -1,0 +1,31 @@
+.scroll-to-top-button {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--lesser-dark);
+    border-radius: 50%;
+    z-index: 500;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 200ms;
+    border: 2px solid white
+}
+
+.scroll-to-top-button:hover {
+    opacity: 0.8;
+}
+
+.scroll-to-top-button svg {
+    width: 40px;
+}
+
+.scroll-to-top-button__visible {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-button__hidden {
+    transform: translateY(100%);
+    visibility: hidden;
+}

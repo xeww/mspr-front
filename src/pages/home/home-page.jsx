@@ -1,19 +1,15 @@
-/* Stylesheets imports */
 import "./home-page.css";
-
-/* Assets imports */
 import backgroundImage from "../../assets/home_background.png";
 import questionOneImage from "../../assets/question1.png";
 import questionTwoImage from "../../assets/question2.png";
 import questionThreeImage from "../../assets/question3.png";
-
-/* Components imports */
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import DoubleArrowDownIcon from "../../components/icons/double-arrow-down-icon.jsx";
 import Question from "./question/question.jsx";
 import Button from "../../components/buttons/button.jsx";
 import { useLocation } from "wouter";
+import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
 
 export default function HomePage() {
   return (
@@ -22,6 +18,7 @@ export default function HomePage() {
       <Showcase />
       <Questions />
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

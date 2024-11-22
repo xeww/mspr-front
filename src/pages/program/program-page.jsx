@@ -10,6 +10,7 @@ import { useLocation } from "wouter";
 import { getFullDate, getHour, isDateBetween } from "../../utils/date.js";
 import Filters from "./filters/filters.jsx";
 import useData from "../../hooks/useData.js";
+import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
 
 export const FilterContext = createContext(null);
 
@@ -44,6 +45,7 @@ export default function ProgramPage() {
         <Concerts />
       </MarginWrapper>
       <Footer />
+      <ScrollToTop />
     </FilterProvider>
   );
 }
