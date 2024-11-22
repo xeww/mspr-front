@@ -9,7 +9,7 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { getFullDate, getHour, isDateBetween } from "../../utils/date.js";
 import Filters from "./filters/filters.jsx";
-import useData from "../../hooks/useData.js";
+import useData from "../../hooks/use-data.js";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
 
 export const FilterContext = createContext(null);

@@ -3,7 +3,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
-import useData from "../../hooks/useData.js";
+import useData from "../../hooks/use-data.js";
 import { useEffect, useState } from "react";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
 

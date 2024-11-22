@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import MapPinIcon from "../../components/icons/map-pin-icon.jsx";
 import Button from "../../components/buttons/button.jsx";
 import { getFullDateAndHour } from "../../utils/date.js";
-import useData from "../../hooks/useData.js";
+import useData from "../../hooks/use-data.js";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");

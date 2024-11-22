@@ -4,7 +4,7 @@ import ExpandIcon from "../../../components/icons/expand-icon.jsx";
 import { useContext, useEffect, useRef, useState } from "react";
 import SceneIcon from "../../../components/icons/scene-icon.jsx";
 import { FilterContext } from "../program-page.jsx";
-import useData from "../../../hooks/useData.js";
+import useData from "../../../hooks/use-data.js";
 import Calendar from "react-calendar";
 import CalendarIcon from "../../../components/icons/calendar-icon.jsx";
 import FunctionIcon from "../../../components/icons/function-icon.jsx";
