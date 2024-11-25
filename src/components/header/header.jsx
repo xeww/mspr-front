@@ -17,21 +17,14 @@ function MenuStateProvider({ children }) {
 }
 
 export default function Header() {
-  const headerRef = useRef(null);
-  const transparent = "rgba(217, 217, 217, 0.03)";
-  const opaque = "var(--dark)";
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleScroll = () => {
-    if (document.documentElement.scrollTop > 50) {
-      headerRef.current.style.backgroundColor = opaque;
-      headerRef.current.style.borderBottom = "1px solid white";
-    } else {
-      headerRef.current.style.backgroundColor = transparent;
-      headerRef.current.style.borderBottom = "none";
-    }
+    setHasScrolled(document.documentElement.scrollTop > 50);
   };
 
   useEffect(() => {
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -41,7 +34,12 @@ export default function Header() {
 
   return (
     <MenuStateProvider>
-      <header ref={headerRef}>
+      <header
+        className={
+          "header-container" +
+          (hasScrolled ? " header-container__scrolled" : "")
+        }
+      >
         <div className="header-flex-container">
           <Title />
           <Menu />
@@ -77,16 +75,6 @@ function Menu() {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const extension = document.querySelector(".menu-extension-container");
-    if (extension) {
-      extension.style.backdropFilter = isOpen ? "blur(100px)" : "none";
-      extension.style.transform = isOpen
-        ? "translateX(0%)"
-        : "translateX(100%)";
-    }
-  }, [isOpen]);
-
   return (
     <div className={"menu-icon-container"} ref={button} onClick={handleClick}>
       {isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -95,14 +83,19 @@ function Menu() {
 }
 
 function MenuExtension() {
-  const { setIsOpen } = useContext(MenuStateContext);
+  const { isOpen, setIsOpen } = useContext(MenuStateContext);
 
   const handleClick = () => {
     setIsOpen(false);
   };
 
   return (
-    <div className="menu-extension-container">
+    <div
+      className={
+        "menu-extension-container" +
+        (isOpen ? " menu-extension-container__open" : "")
+      }
+    >
       <div className="menu-extension-items">
         <Link to="/" className="font-title" onClick={handleClick}>
           Accueil

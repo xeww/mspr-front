@@ -17,13 +17,29 @@
 .faq-question-expand-button {
     top: 20px;
     right: 5px;
-    transition: transform 0.5s;
+    transition: transform 300ms;
+}
+
+.faq-question-expand-button__enable {
+    transform: rotate(180deg);
+}
+
+.faq-question-expand-button__disable {
+    transform: rotate(0deg);
+}
+
+.faq-question-answer {
+    margin-top: 20px;
+}
+
+.faq-question-answer__enable {
+    display: block;
+}
+
+.faq-question-answer__disable {
+    display: none;
 }
 
 .faq-question-container svg {
     width: 25px;
-}
-
-.faq-question-container p:nth-child(2) {
-    margin-top: 20px;
 }

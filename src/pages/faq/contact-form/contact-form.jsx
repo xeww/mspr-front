@@ -1,7 +1,4 @@
-/* Stylesheets imports */
 import "./contact-form.css";
-
-/* Components imports */
 import Button from "../../../components/buttons/button.jsx";
 import UserIcon from "../../../components/icons/user-icon.jsx";
 import MailIcon from "../../../components/icons/mail-icon.jsx";

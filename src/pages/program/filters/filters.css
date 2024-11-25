@@ -35,6 +35,14 @@
     display: flex;
 }
 
+.single-filter-menu__open {
+    display: block;
+}
+
+.single-filter-menu__close {
+    display: none;
+}
+
 .filter-menu {
     background-color: var(--lesser-dark);
     border-radius: 0 0 10px 10px;

@@ -1,7 +1,4 @@
-/* Stylesheets imports */
 import "./faq-page.css";
-
-/* Components imports */
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";
@@ -9,9 +6,7 @@ import ContactForm from "./contact-form/contact-form.jsx";
 import InfoBubble from "../../components/info-bubble/info-bubble.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import ArrowIcon from "../../components/icons/arrow-icon.jsx";
-
-/* Hooks imports */
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export default function FaqPage() {
   return (
@@ -74,29 +69,34 @@ export function Questions() {
 
 function Question({ question, answer }) {
   const [isToggled, setToggled] = useState(false);
-  const answerRef = useRef(null);
-  const buttonRef = useRef(null);
 
   const handleClick = () => {
     setToggled(!isToggled);
   };
 
-  useEffect(() => {
-    answerRef.current.style.display = isToggled ? "block" : "none";
-    buttonRef.current.style.transform = isToggled
-      ? "rotate(180deg)"
-      : "rotate(0)";
-  }, [isToggled]);
-
   return (
     <div className="faq-question-container glow" onClick={handleClick}>
       <div>
         <p className="font-title">{question}</p>
-        <p className="font-body" ref={answerRef}>
+        <p
+          className={
+            "font-body faq-question-answer " +
+            (isToggled
+              ? "faq-question-answer__enable"
+              : "faq-question-answer__disable")
+          }
+        >
           {answer}
         </p>
       </div>
-      <div className="faq-question-expand-button" ref={buttonRef}>
+      <div
+        className={
+          "faq-question-expand-button " +
+          (isToggled
+            ? "faq-question-expand-button__enable"
+            : "faq-question-expand-button__disable")
+        }
+      >
         <ArrowIcon />
       </div>
     </div>

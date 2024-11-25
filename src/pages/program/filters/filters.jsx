@@ -1,7 +1,7 @@
 import "./filters.css";
 import UserStarIcon from "../../../components/icons/user-star-icon.jsx";
 import ExpandIcon from "../../../components/icons/expand-icon.jsx";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SceneIcon from "../../../components/icons/scene-icon.jsx";
 import { FilterContext } from "../program-page.jsx";
 import useData from "../../../hooks/use-data.js";
@@ -39,17 +39,10 @@ export default function Filters() {
 
 function SingleFilter({ defaultStr, menu, leftIcon, rightIcon }) {
   const [toggled, setToggled] = useState(false);
-  const menuRef = useRef(null);
 
   const handleClick = () => {
     setToggled(!toggled);
   };
-
-  useEffect(() => {
-    if (menuRef.current) {
-      menuRef.current.style.display = toggled ? "block" : "none";
-    }
-  }, [toggled]);
 
   return (
     <div>
@@ -58,7 +51,13 @@ function SingleFilter({ defaultStr, menu, leftIcon, rightIcon }) {
         <p className="font-title">{defaultStr}</p>
         <div className="filter-expand-icon">{rightIcon}</div>
       </div>
-      <div ref={menuRef}>{menu}</div>
+      <div
+        className={
+          toggled ? "single-filter-menu__open" : "single-filter-menu__close"
+        }
+      >
+        {menu}
+      </div>
     </div>
   );
 }
