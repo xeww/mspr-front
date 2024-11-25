@@ -12,33 +12,31 @@ import useData from "../../hooks/use-data.js";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");
+  const [, setLocation] = useLocation();
   const [display, setDisplay] = useState(null);
+  const concert = useData(params?.id ?? null, "concert");
 
-  if (!match && isNaN(params.id)) {
-    return <Redirect to="/" />;
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const concert = useData(params.id, "concert");
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    if (concert && Object.keys(concert).length > 0) {
-      setDisplay(
-        <>
-          <UpperPage
-            title={concert.artist.name}
-            description={getFullDateAndHour(concert.dateAndTime)}
-          />
-          <MarginWrapper>
-            <ConcertInfo
-              scene={concert.scene}
-              imageUrl={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
-              artist={concert.artist}
+    if (!match && isNaN(params?.id ?? null)) {
+      setLocation("/");
+    } else {
+      if (concert && Object.keys(concert).length > 0) {
+        setDisplay(
+          <>
+            <UpperPage
+              title={concert.artist.name}
+              description={getFullDateAndHour(concert.dateAndTime)}
             />
-          </MarginWrapper>
-        </>,
-      );
+            <MarginWrapper>
+              <ConcertInfo
+                scene={concert.scene}
+                imageUrl={`${import.meta.env.VITE_IMAGES_URL}/${concert.artist.imageName}`}
+                artist={concert.artist}
+              />
+            </MarginWrapper>
+          </>,
+        );
+      }
     }
   }, [concert]);
 
