@@ -12,6 +12,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 200ms;
+}
+
+.faq-question-container:hover {
+    opacity: 0.85;
 }
 
 .faq-question-expand-button {
