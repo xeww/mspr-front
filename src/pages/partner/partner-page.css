@@ -41,3 +41,20 @@
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
+
+@media (max-width: 800px) {
+    .partner-type-list-content {
+        justify-content: space-evenly;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .partner-type-list-content img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .partner-type-list-content-info {
+        width: 100%;
+    }
+}

@@ -44,3 +44,17 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 500px) {
+    .map-filters-container {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 830px) {
+    .map-filters-container {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+}

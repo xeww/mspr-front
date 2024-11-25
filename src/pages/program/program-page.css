@@ -1,5 +1,18 @@
 .concerts-container {
     display: grid;
     gap: 5%;
-    grid-template-columns: 1fr 1fr 1fr; /* TODO: the lesser the width, the less fractions we need*/
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 1280px) {
+    .concerts-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .concerts-container {
+        grid-template-columns: 1fr;
+        margin-bottom: 300px;
+    }
 }

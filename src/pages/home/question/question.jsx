@@ -1,18 +1,13 @@
-/* Stylesheets imports */
 import "./question.css";
-import { useEffect, useRef } from "react";
 
 export default function Question({ question, answer, imageSource, reversed }) {
-  const container = useRef(null);
-
-  useEffect(() => {
-    if (reversed && container.current) {
-      container.current.style.flexDirection = "row-reverse";
-    }
-  }, [reversed]);
-
   return (
-    <div className="home-question-container" ref={container}>
+    <div
+      className={
+        "home-question-container" +
+        (reversed ? " home-question-container__reverse" : "")
+      }
+    >
       <Text question={question} answer={answer} />
       <Image imageSource={imageSource} />
     </div>

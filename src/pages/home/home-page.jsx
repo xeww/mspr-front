@@ -10,13 +10,16 @@ import Question from "./question/question.jsx";
 import Button from "../../components/buttons/button.jsx";
 import { useLocation } from "wouter";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
+import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 
 export default function HomePage() {
   return (
     <>
       <Header />
       <Showcase />
-      <Questions />
+      <MarginWrapper>
+        <Questions />
+      </MarginWrapper>
       <Footer />
       <ScrollToTop />
     </>

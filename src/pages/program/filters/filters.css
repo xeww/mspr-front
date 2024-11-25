@@ -41,6 +41,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-top: 1px solid white;
+    width: 100%;
 }
 
 .filter-menu-choice {
@@ -134,6 +135,17 @@
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
     background: var(--red);
+}
+
+@media (max-width: 950px) {
+    .filters-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .filter-menu {
+        width: 50%;
+    }
 }
 
 

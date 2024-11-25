@@ -1,3 +1,50 @@
-.margin-wrapper {
-    margin: 100px;
+/* mobile */
+
+@media (min-width: 0px) {
+    .margin-wrapper {
+        margin: 100px 5px 200px 5px;
+    }
+}
+
+@media (min-width: 300px) {
+    .margin-wrapper {
+        margin: 50px 20px 200px 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .margin-wrapper {
+        margin: 50px 40px 100px 40px;
+    }
+}
+
+@media (min-width: 850px) {
+    .margin-wrapper {
+        margin: 100px 60px 100px 60px;
+    }
+}
+
+/* desktop */
+@media (min-width: 1280px) {
+    .margin-wrapper {
+        margin: 100px 80px 100px 80px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .margin-wrapper {
+        margin: 100px 100px 100px 100px;
+    }
+}
+
+@media (min-width: 1640px) {
+    .margin-wrapper {
+        margin: 100px 150px 100px 150px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .margin-wrapper {
+        margin: 100px 200px 100px 200px;
+    }
 }
