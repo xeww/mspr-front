@@ -4,6 +4,10 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import CloseIcon from "../icons/close-icon.jsx";
 import ExternalLinkIcon from "../icons/external-link-icon.jsx";
+import TwitterIcon from "../icons/twitter-icon.jsx";
+import InstagramIcon from "../icons/instagram-icon.jsx";
+import FacebookIcon from "../icons/facebook-icon.jsx";
+import YoutubeIcon from "../icons/youtube-icon.jsx";
 
 export const MenuStateContext = createContext(null);
 
@@ -122,6 +126,21 @@ function MenuExtension() {
             Billetterie
           </a>
           <ExternalLinkIcon />
+        </div>
+
+        <div className="menu-extension-socials">
+          <a href="https://x.com" target="_blank">
+            <TwitterIcon />
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <InstagramIcon />
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <FacebookIcon />
+          </a>
+          <a href="https://youtube.com" target="_blank">
+            <YoutubeIcon />
+          </a>
         </div>
       </div>
     </div>

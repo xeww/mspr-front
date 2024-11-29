@@ -84,3 +84,8 @@ header svg {
 .menu-extension-items a:hover::after {
     width: 100%;
 }
+
+.menu-extension-socials {
+    display: flex;
+    gap: 20px;
+}
