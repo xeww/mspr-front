@@ -1,5 +1,5 @@
 import "./concert-info-page.css";
-import { Redirect, useLocation, useRoute } from "wouter";
+import { useLocation, useRoute } from "wouter";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import UpperPage from "../../components/upper-page/upper-page.jsx";

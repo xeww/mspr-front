@@ -3,6 +3,7 @@ import MenuIcon from "../icons/menu-icon.jsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import CloseIcon from "../icons/close-icon.jsx";
+import ExternalLinkIcon from "../icons/external-link-icon.jsx";
 
 export const MenuStateContext = createContext(null);
 
@@ -112,6 +113,16 @@ function MenuExtension() {
         <Link to="/faq" className="font-title" onClick={handleClick}>
           FAQ
         </Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <a
+            href="https://ticketmaster.com"
+            className="font-title"
+            target="_blank"
+          >
+            Billetterie
+          </a>
+          <ExternalLinkIcon />
+        </div>
       </div>
     </div>
   );
