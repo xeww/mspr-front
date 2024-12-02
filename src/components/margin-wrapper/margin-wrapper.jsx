@@ -1,4 +1,3 @@
-/* Stylesheets imports */
 import "./margin-wrapper.css";
 
 export default function MarginWrapper({ children }) {

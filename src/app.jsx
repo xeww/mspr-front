@@ -1,14 +1,9 @@
-/* Stylesheets imports */
 import "./main.css";
-
-/* Components imports */
 import HomePage from "./pages/home/home-page.jsx";
 import MapPage from "./pages/map/map-page.jsx";
 import FaqPage from "./pages/faq/faq-page.jsx";
 import ProgramPage from "./pages/program/program-page.jsx";
 import PartnerPage from "./pages/partner/partner-page.jsx";
-
-/* Lib imports */
 import { Redirect, Route, Switch } from "wouter";
 import ConcertInfoPage from "./pages/concert-info/concert-info-page.jsx";
 

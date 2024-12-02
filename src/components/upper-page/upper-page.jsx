@@ -1,4 +1,3 @@
-/* Stylesheets imports */
 import "./upper-page.css";
 
 export default function UpperPage({ title, description }) {

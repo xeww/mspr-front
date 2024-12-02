@@ -1,7 +1,4 @@
-/* Stylesheets imports */
 import "./footer.css";
-
-/* Components imports */
 import TwitterIcon from "../icons/twitter-icon.jsx";
 import InstagramIcon from "../icons/instagram-icon.jsx";
 import FacebookIcon from "../icons/facebook-icon.jsx";

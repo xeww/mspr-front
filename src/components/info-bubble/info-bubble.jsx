@@ -1,4 +1,3 @@
-/* Stylesheets imports */
 import "./info-bubble.css";
 
 export default function InfoBubble({ title, description }) {
