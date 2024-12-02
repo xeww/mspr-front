@@ -153,7 +153,7 @@ function GeoLocationButton() {
   };
   return (
     <div className="geolocate-button">
-      <Button text="Se géo-localiser" onClick={handleClick} />
+      <Button text="Se géo-localiser" onClick={handleClick} isSubmit={false} />
     </div>
   );
 }

@@ -69,6 +69,7 @@ function ConcertInfo({ scene, imageUrl, artist }) {
           onClick={() => {
             setLocation("/carte");
           }}
+          isSubmit={false}
         />
       </section>
     </>

@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+.contact-form-input input:focus, .contact-form-input textarea:focus {
+    outline: none;
+}
+
 .contact-form-input svg {
     position: absolute;
     width: 25px;
@@ -34,4 +38,20 @@
 
 .contact-form-container button {
     width: 100%;
+}
+
+.contact-form-alert {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.contact-form-alert__error {
+    background-color: rgba(205, 92, 92, 0.5);
+    border: 2px solid indianred;
+}
+
+.contact-form-alert__success {
+    background-color: rgba(50, 205, 50, 0.5);
+    border: 2px solid limegreen;
 }
