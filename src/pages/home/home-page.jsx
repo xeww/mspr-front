@@ -1,8 +1,8 @@
 import "./home-page.css";
 import backgroundImage from "../../assets/home_background.webp";
-import questionOneImage from "../../assets/question1.png";
-import questionTwoImage from "../../assets/question2.png";
-import questionThreeImage from "../../assets/question3.png";
+import questionOuImage from "../../assets/question_ou.webp";
+import questionQuoiImage from "../../assets/question_quoi.webp";
+import questionQuandImage from "../../assets/question_quand.webp";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import DoubleArrowDownIcon from "../../components/icons/double-arrow-down-icon.jsx";
@@ -56,7 +56,7 @@ export function Questions() {
         answer="Nation Sounds est un festival unique qui rassemble des artistes venus des quatre coins du monde.
           Célébrant la diversité musicale, il mêle sons électro, rythmes traditionnels et découvertes culturelles dans
            une ambiance festive et conviviale. Un rendez-vous incontournable pour les passionnés de musique."
-        imageSource={questionOneImage}
+        imageSource={questionQuoiImage}
         reversed={false}
       />
 
@@ -65,7 +65,7 @@ export function Questions() {
         answer="Nation Sounds a lieu chaque année pendant l'été, sur trois jours de musique non-stop. Préparez-vous à
            vivre un week-end intense de découvertes musicales, d'énergie et de festivités sous le soleil, avec des
            performances du matin jusqu'à tard dans la nuit."
-        imageSource={questionTwoImage}
+        imageSource={questionQuandImage}
         reversed={true}
       />
 
@@ -74,7 +74,7 @@ export function Questions() {
         answer="Le festival se déroule en plein air, dans un cadre naturel exceptionnel. Situé au bois de Vincennes,
           le site offre une expérience immersive au cœur de la nature, avec plusieurs scènes réparties pour profiter de
           chaque moment musical dans un décor unique."
-        imageSource={questionThreeImage}
+        imageSource={questionOuImage}
         reversed={false}
       />
 
