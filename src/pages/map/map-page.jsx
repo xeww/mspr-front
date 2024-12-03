@@ -12,6 +12,7 @@ import shopIcon from "../../assets/icons8-shop-30.png";
 import wcIcon from "../../assets/icons8-portable-toilet-30.png";
 import { SceneMarker, StandMarker, WCMarker } from "./markers.jsx";
 import Button from "../../components/buttons/button.jsx";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 const MapFilterContext = createContext(null);
 const GeoLocationContext = createContext(null);
@@ -61,6 +62,7 @@ export default function MapPage() {
           <GeoLocationButton />
         </MarginWrapper>
         <Footer />
+        <ScrollBack />
       </MapFilterProvider>
     </GeoLocationProvider>
   );

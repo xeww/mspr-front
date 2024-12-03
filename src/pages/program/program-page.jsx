@@ -11,6 +11,7 @@ import { getFullDate, getHour, isDateBetween } from "../../utils/date.js";
 import Filters from "./filters/filters.jsx";
 import useData from "../../hooks/use-data.js";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 export const FilterContext = createContext(null);
 
@@ -46,6 +47,7 @@ export default function ProgramPage() {
       </MarginWrapper>
       <Footer />
       <ScrollToTop />
+      <ScrollBack />
     </FilterProvider>
   );
 }

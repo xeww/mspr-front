@@ -11,6 +11,7 @@ import Button from "../../components/buttons/button.jsx";
 import { useLocation } from "wouter";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       </MarginWrapper>
       <Footer />
       <ScrollToTop />
+      <ScrollBack />
     </>
   );
 }

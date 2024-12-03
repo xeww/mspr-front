@@ -6,6 +6,7 @@ import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import useData from "../../hooks/use-data.js";
 import { useEffect, useState } from "react";
 import ScrollToTop from "../../components/scroll-to-top/scroll-to-top.jsx";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 export default function PartnerPage() {
   const partners = useData(-1, "partner");
@@ -40,6 +41,7 @@ export default function PartnerPage() {
       </MarginWrapper>
       <Footer />
       <ScrollToTop />
+      <ScrollBack />
     </>
   );
 }

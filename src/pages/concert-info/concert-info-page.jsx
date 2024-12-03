@@ -9,6 +9,7 @@ import MapPinIcon from "../../components/icons/map-pin-icon.jsx";
 import Button from "../../components/buttons/button.jsx";
 import { getFullDateAndHour } from "../../utils/date.js";
 import useData from "../../hooks/use-data.js";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 export default function ConcertInfoPage() {
   const [match, params] = useRoute("/concert/:id");
@@ -45,6 +46,7 @@ export default function ConcertInfoPage() {
       <Header />
       {display}
       <Footer />
+      <ScrollBack />
     </>
   );
 }

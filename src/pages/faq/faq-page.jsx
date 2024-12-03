@@ -7,6 +7,7 @@ import InfoBubble from "../../components/info-bubble/info-bubble.jsx";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import ArrowIcon from "../../components/icons/arrow-icon.jsx";
 import { useState } from "react";
+import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 export default function FaqPage() {
   return (
@@ -26,6 +27,7 @@ export default function FaqPage() {
         <ContactForm />
       </MarginWrapper>
       <Footer />
+      <ScrollBack />
     </>
   );
 }
