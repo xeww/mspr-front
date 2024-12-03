@@ -96,7 +96,7 @@ function Concerts() {
 
   useEffect(() => {
     handleFilters();
-  }, [filterSelection]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [filterSelection, concerts]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className="concerts-container" ref={container}>
