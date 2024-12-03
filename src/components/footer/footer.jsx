@@ -20,17 +20,17 @@ function Links() {
     <div className="footer-links">
       <div className="footer-blur footer-blur-left"></div>
       <div className="footer-blur footer-blur-right"></div>
-      <Link to="/" className="font-body">
+      <Link to="/confidentialité" className="font-body">
         Confidentialité
       </Link>
-      <Link to="/" className="font-body">
+      <Link to="/mentions_légales" className="font-body">
         Mentions légales
       </Link>
-      <Link to="/" className="font-body">
+      <Link to="/cgu" className="font-body">
         CGU
       </Link>
-      <Link to="/" className="font-body">
-        Sitemap
+      <Link to="/faq" className="font-body">
+        Contact
       </Link>
     </div>
   );

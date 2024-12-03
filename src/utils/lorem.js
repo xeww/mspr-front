@@ -1,0 +1,23 @@
+export default function getLorem() {
+  return (
+    "Lorem ipsum odor amet, consectetuer adipiscing elit. Primis dui platea interdum curae dapibus dignissim habitasse. At tempor etiam nullam scelerisque urna quis. Risus vitae efficitur sit molestie consectetur nascetur nullam vestibulum. Morbi quis aliquam nisi nibh ornare natoque volutpat. Mattis a aliquam molestie, purus fusce convallis.\n" +
+    "\n" +
+    "Ut sociosqu ante interdum parturient feugiat tempus non. Suspendisse potenti placerat sem ornare curabitur hac volutpat fringilla. Pharetra praesent malesuada maecenas quisque; quis turpis pretium tempor. Non sit tristique justo integer nulla conubia dignissim adipiscing. Diam maximus malesuada facilisis, sem odio faucibus. Accumsan elementum et adipiscing potenti donec ex.\n" +
+    "\n" +
+    "Leo ultricies leo ipsum, eleifend senectus lacus magna ante. Hendrerit amet adipiscing etiam nisl proin. Aenean urna fermentum amet porttitor etiam semper pellentesque. Mi torquent dapibus interdum tincidunt maximus leo imperdiet diam. Tempor cras dictum aliquam auctor iaculis dis dignissim mus. Maecenas varius vulputate nullam augue curae purus maximus morbi maximus. Consectetur aptent mi velit, risus netus lacus inceptos vehicula sit. Cursus ullamcorper congue suscipit taciti venenatis mi. Curabitur litora rutrum interdum fermentum, elit senectus lacinia.\n" +
+    "\n" +
+    "Vehicula eros curae eros nibh justo porttitor. Aenean vivamus penatibus nunc dolor mi lorem. Accumsan aptent natoque nibh vitae torquent neque laoreet eget. Interdum pulvinar mauris varius accumsan dictum eu. Lacus nascetur eget risus nisl torquent finibus aliquet placerat. Molestie ultricies himenaeos lacus posuere fringilla; magna augue. Accumsan per elementum facilisis suscipit ipsum montes.\n" +
+    "\n" +
+    "Elementum convallis in vivamus torquent risus sem curabitur nunc hac. Adipiscing ornare vestibulum viverra finibus proin hendrerit odio vestibulum. Adipiscing nascetur posuere euismod morbi eget metus. Pellentesque ligula luctus risus scelerisque neque himenaeos laoreet. Viverra nam lectus nulla aliquet facilisi. Varius habitant dictum volutpat at urna.\n" +
+    "\n" +
+    "Mattis justo elit platea quis hendrerit aliquam sed elementum. Himenaeos class aliquet velit tellus quis phasellus elementum? Eleifend massa placerat sit praesent suscipit dapibus fringilla nulla. Suscipit libero suspendisse dignissim, ante ligula cubilia. Elementum elementum conubia mollis fames pulvinar maximus venenatis. Elementum duis dapibus litora placerat elit egestas. Torquent lacinia cursus per ex lobortis ad ultrices. Non sem sociosqu fermentum semper laoreet. Duis congue libero massa cursus nascetur justo pellentesque fames suscipit.\n" +
+    "\n" +
+    "Convallis potenti purus rutrum semper condimentum. Turpis ad cras fringilla suspendisse cras malesuada. Arcu efficitur sollicitudin dapibus varius ut consectetur ultricies. Class eleifend nostra augue pharetra nibh. Volutpat conubia efficitur sit massa sollicitudin netus vulputate ultrices. Egestas purus ridiculus fermentum senectus nulla. Enim ac pellentesque massa lobortis mi.\n" +
+    "\n" +
+    "Nam mollis sagittis convallis; convallis metus urna ultricies. Urna eleifend feugiat hac dictumst metus. Egestas velit malesuada hac sed adipiscing est. Facilisis accumsan non torquent dapibus etiam. Pulvinar sapien lobortis dui ultrices augue sagittis in nostra lorem? Mattis bibendum augue mattis magnis ridiculus ridiculus nam. Imperdiet parturient taciti pellentesque torquent sed sollicitudin dapibus. Justo euismod aenean primis finibus porta tellus neque mauris.\n" +
+    "\n" +
+    "Vulputate feugiat venenatis finibus montes eu donec. Pellentesque mattis tellus ridiculus parturient donec. Amus natoque blandit ex maecenas est morbi viverra. Arcu justo sed tellus; himenaeos tortor senectus tempus enim. Sed ex placerat ad commodo natoque metus faucibus fusce. Maximus sapien a feugiat habitasse lacus habitasse class congue. Bibendum montes est rhoncus, ipsum habitasse etiam montes dapibus nulla! Natoque purus quam rhoncus fusce accumsan luctus. Nascetur in ullamcorper lacinia vestibulum euismod?\n" +
+    "\n" +
+    "Vehicula suspendisse aenean tristique nullam sem dictum torquent venenatis. Pharetra phasellus ante himenaeos eu mollis suscipit fringilla vitae. Lacus gravida sollicitudin etiam felis nulla eu odio platea. Elit pharetra nam imperdiet ex lobortis efficitur. Tellus purus urna rutrum fermentum scelerisque. Iaculis duis odio fusce rutrum lacus. Ac vitae proin magna curabitur litora fames ridiculus?"
+  );
+}
