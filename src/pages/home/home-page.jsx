@@ -1,5 +1,5 @@
 import "./home-page.css";
-import backgroundImage from "../../assets/home_background.png";
+import backgroundImage from "../../assets/home_background.webp";
 import questionOneImage from "../../assets/question1.png";
 import questionTwoImage from "../../assets/question2.png";
 import questionThreeImage from "../../assets/question3.png";
