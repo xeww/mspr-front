@@ -1,7 +1,6 @@
 .concert-card-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
@@ -13,8 +12,7 @@
 }
 
 .concert-card-top-container {
-    width: 100%;
-    height: 250px;
+    height: 70%;
 }
 
 .concert-card-top-container img {
@@ -25,6 +23,7 @@
 }
 
 .concert-card-bottom-container {
+    height: 30%;
     background-color: var(--lesser-dark);
     border-radius: 0 0 10px 10px;
     display: flex;
