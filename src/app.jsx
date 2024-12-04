@@ -8,6 +8,7 @@ import { Redirect, Route, Switch } from "wouter";
 import ConcertInfoPage from "./pages/concert-info/concert-info-page.jsx";
 import TextPage from "./pages/text-page/text-page.jsx";
 import getLorem from "./utils/lorem.js";
+import NewsPage from "./pages/news/news-page.jsx";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/faq" component={FaqPage} />
         <Route path="/programme" component={ProgramPage} />
         <Route path="/partenaires" component={PartnerPage} />
+        <Route path="/news" component={NewsPage} />
         <Route path="/concert/:id" component={ConcertInfoPage} />
         <Route
           path="/confidentialité"

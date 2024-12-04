@@ -4,7 +4,7 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    z-index: 1002;
+    z-index: 1004;
 }
 
 .header-container__scrolled {
@@ -50,7 +50,7 @@ header svg {
     position: fixed;
     transform: translateX(100%);
     transition: transform 400ms;
-    z-index: 1001;
+    z-index: 1003;
     backdrop-filter: blur(100px);
 }
 

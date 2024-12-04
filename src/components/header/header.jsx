@@ -111,6 +111,9 @@ function MenuExtension() {
         <Link to="/carte" className="font-title" onClick={handleClick}>
           Carte
         </Link>
+        <Link to="/news" className="font-title" onClick={handleClick}>
+          News
+        </Link>
         <Link to="/partenaires" className="font-title" onClick={handleClick}>
           Partenaires
         </Link>
