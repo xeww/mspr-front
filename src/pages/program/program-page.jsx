@@ -35,7 +35,7 @@ export default function ProgramPage() {
       <Header />
       <UpperPage
         title="Le Programme"
-        description="Découvrez le programme que nous avons préparer!"
+        description="Découvrez le programme que nous avons préparé!"
       />
       <MarginWrapper>
         <InfoBubble

@@ -165,7 +165,7 @@ function Filters() {
     <section className="map-filters-container">
       <SingleFilter imageSrc={shopIcon} text="Stands" type="stand" />
       <SingleFilter imageSrc={sceneIcon} text="Scènes" type="scene" />
-      <SingleFilter imageSrc={wcIcon} text="WC" type="wc" />
+      <SingleFilter imageSrc={wcIcon} text="Toilettes" type="wc" />
     </section>
   );
 }
