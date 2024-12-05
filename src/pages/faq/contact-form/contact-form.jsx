@@ -4,9 +4,11 @@ import UserIcon from "../../../components/icons/user-icon.jsx";
 import MailIcon from "../../../components/icons/mail-icon.jsx";
 import MessageIcon from "../../../components/icons/message-icon.jsx";
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -16,28 +18,34 @@ export default function ContactForm() {
     const messageInput = document.getElementById("message");
 
     if (fullNameInput && emailInput && messageInput) {
-      fetch(`${import.meta.env.VITE_API_URL}/contact`, {
-        method: "POST",
-        body: JSON.stringify({
-          fullName: fullNameInput.value,
-          email: emailInput.value,
-          message: messageInput.value,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setSubmitted(true);
+      if (!captchaValue) {
+        setError(true);
+        setMessage("Merci de compléter la CAPTCHA.");
+        setSubmitted(true);
+      } else {
+        fetch(`${import.meta.env.VITE_API_URL}/contact`, {
+          method: "POST",
+          body: JSON.stringify({
+            fullName: fullNameInput.value,
+            email: emailInput.value,
+            message: messageInput.value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setSubmitted(true);
 
-          if (data.success) {
-            setMessage(data.success);
-            setError(false);
-          }
+            if (data.success) {
+              setMessage(data.success);
+              setError(false);
+            }
 
-          if (data.error) {
-            setMessage(data.error);
-            setError(true);
-          }
-        });
+            if (data.error) {
+              setMessage(data.error);
+              setError(true);
+            }
+          });
+      }
     }
   };
 
@@ -47,6 +55,13 @@ export default function ContactForm() {
       <FullNameInput />
       <EmailInput />
       <MessageInput />
+      <ReCAPTCHA
+        sitekey={import.meta.env.VITE_RECAPTCHA_CLIENT_KEY}
+        theme="dark"
+        onChange={(value) => setCaptchaValue(value)}
+        size="compact"
+        hl="fr"
+      />
       <Button text="Envoyer" isSubmit={false} onClick={handleClick} />
     </form>
   );
