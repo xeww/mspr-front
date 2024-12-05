@@ -11,11 +11,11 @@ import sceneIcon from "../../assets/icons8-scene-30.png";
 import shopIcon from "../../assets/icons8-shop-30.png";
 import wcIcon from "../../assets/icons8-portable-toilet-30.png";
 import { SceneMarker, StandMarker, WCMarker } from "./markers.jsx";
-import Button from "../../components/buttons/button.jsx";
 import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 const MapFilterContext = createContext(null);
 const GeoLocationContext = createContext(null);
+const mapCenter = [48.82839101465429, 2.433085355121854];
 
 function MapFilterProvider({ children }) {
   const [standFilter, setStandFilter] = useState(true);
@@ -59,7 +59,6 @@ export default function MapPage() {
         <MarginWrapper>
           <Filters />
           <LeafletMap />
-          <GeoLocationButton />
         </MarginWrapper>
         <Footer />
         <ScrollBack />
@@ -99,11 +98,7 @@ function LeafletMap() {
   };
 
   return (
-    <MapContainer
-      center={[48.82839101465429, 2.433085355121854]}
-      zoom={17}
-      scrollWheelZoom={false}
-    >
+    <MapContainer center={mapCenter} zoom={17} scrollWheelZoom={false}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {sceneMarkers()}
       {standMarkers()}
@@ -113,50 +108,10 @@ function LeafletMap() {
           <Popup>Votre position actuelle</Popup>
         </Marker>
       ) : null}
+      <CenterMapButton />
+      <GeoLocationButton />
       <RecenterAutomatically />
     </MapContainer>
-  );
-}
-
-/*
-  From: https://stackoverflow.com/a/73317874
- */
-function RecenterAutomatically() {
-  const { location } = useContext(GeoLocationContext);
-
-  const map = useMap();
-
-  useEffect(() => {
-    if (location) {
-      map.panTo([location.latitude, location.longitude]);
-    }
-  }, [location]);
-
-  return null;
-}
-
-function GeoLocationButton() {
-  const { setLocation } = useContext(GeoLocationContext);
-
-  const handleClick = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.log(error);
-        },
-      );
-    }
-  };
-  return (
-    <div className="geolocate-button">
-      <Button text="Se géo-localiser" onClick={handleClick} isSubmit={false} />
-    </div>
   );
 }
 
@@ -209,6 +164,66 @@ function SingleFilter({ imageSrc, text, type }) {
     >
       <img src={imageSrc} alt="Icône" />
       <p className="font-title">{text}</p>
+    </div>
+  );
+}
+
+/*
+  From: https://stackoverflow.com/a/73317874
+ */
+function RecenterAutomatically() {
+  const { location } = useContext(GeoLocationContext);
+
+  const map = useMap();
+
+  useEffect(() => {
+    if (location) {
+      map.panTo([location.latitude, location.longitude]);
+    }
+  }, [location]);
+
+  return null;
+}
+
+function GeoLocationButton() {
+  const { setLocation } = useContext(GeoLocationContext);
+
+  const handleClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.log(error);
+        },
+      );
+    }
+  };
+
+  return (
+    <div
+      className="map-button geolocate-button font-title"
+      onClick={handleClick}
+    >
+      Voir ma position (GPS)
+    </div>
+  );
+}
+
+function CenterMapButton() {
+  const map = useMap();
+  return (
+    <div
+      className="map-button center-map-button font-title"
+      onClick={() => {
+        map.panTo(mapCenter);
+      }}
+    >
+      Voir le lieu du festival
     </div>
   );
 }
