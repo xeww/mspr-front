@@ -3,6 +3,22 @@ import sceneIcon from "../../assets/icons8-scene-30.png";
 import { Marker, Popup } from "react-leaflet";
 import shopIcon from "../../assets/icons8-shop-30.png";
 import wcIcon from "../../assets/icons8-portable-toilet-30.png";
+import locationIcon from "../../assets/icons8-location-30.png";
+
+export function LocationMarker({ lat, lng }) {
+  const icon = new Icon({
+    iconUrl: locationIcon,
+    iconSize: [35, 35],
+    iconAnchor: [20, 20],
+    popupAnchor: [-3, -20],
+  });
+
+  return (
+    <Marker icon={icon} position={[lat, lng]}>
+      <Popup>Vous êtes ici!</Popup>
+    </Marker>
+  );
+}
 
 export function SceneMarker({ scene }) {
   const icon = new Icon({

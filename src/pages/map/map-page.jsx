@@ -4,13 +4,18 @@ import UpperPage from "../../components/upper-page/upper-page.jsx";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import useData from "../../hooks/use-data.js";
 import MarginWrapper from "../../components/margin-wrapper/margin-wrapper.jsx";
 import sceneIcon from "../../assets/icons8-scene-30.png";
 import shopIcon from "../../assets/icons8-shop-30.png";
 import wcIcon from "../../assets/icons8-portable-toilet-30.png";
-import { SceneMarker, StandMarker, WCMarker } from "./markers.jsx";
+import {
+  LocationMarker,
+  SceneMarker,
+  StandMarker,
+  WCMarker,
+} from "./markers.jsx";
 import ScrollBack from "../../components/scroll-back/scroll-back.jsx";
 
 const MapFilterContext = createContext(null);
@@ -104,9 +109,7 @@ function LeafletMap() {
       {standMarkers()}
       {wcMarkers()}
       {location ? (
-        <Marker position={[location.latitude, location.longitude]}>
-          <Popup>Votre position actuelle</Popup>
-        </Marker>
+        <LocationMarker lat={location.latitude} lng={location.longitude} />
       ) : null}
       <CenterMapButton />
       <GeoLocationButton />
